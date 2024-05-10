@@ -1,9 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+
+import HomeLogo from "@assets/logos/home-logo.png";
 ---
 
 <Layout title="OWINE">
-	<main>
-		<h1 class="text-5xl text-zinc-500">HOLA</h1>
-	</main>
+  <main>
+    <section
+      class="relative w-full h-screen bg-[url(assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center pt-[94px] flex-col"
+    >
+      <Image
+        class="size-60"
+        src={HomeLogo}
+        alt="Image of a wine bottle and a glass with the text 'OWINE' on it."
+      />
+      <h1 class="text-white font-cheddar text-[34px] mt-10">
+        You have to be of legal drinking age
+      </h1>
+      <h2 class="text-white font-cheddar text-[115px]">Are you?</h2>
+
+      <div class="flex gap-10">
+        <button class="font-cheddar text-white text-5xl">Yes</button>
+        <button class="font-cheddar text-white text-5xl">No</button>
+      </div>
+    </section>
+    <Footer />
+  </main>
 </Layout>
