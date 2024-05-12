@@ -1,9 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Footer from "@components/Footer.astro";
 import Layout from "@layouts/Layout.astro";
-
-import HomeLogo from "@assets/logos/home-logo.png";
 ---
 
 <script>
@@ -21,9 +18,9 @@ import HomeLogo from "@assets/logos/home-logo.png";
     <div
       class="relative w-full bg-[url(assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-20 md:py-[74px] flex-col px-6"
     >
-      <Image
+      <img
         class="size-60"
-        src={HomeLogo}
+        src="/assets/logos/home-logo.png"
         alt="Image of a wine bottle and a glass with the text 'OWINE' on it."
       />
       <h1
