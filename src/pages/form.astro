@@ -2,18 +2,17 @@
 import Footer from "@components/Footer.astro";
 import FormWine from "@components/FormWine.astro";
 import Layout from "@layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+import ImageLogo from "@assets/logos/form-logo.webp";
 ---
 
 <Layout title="OWINE - Form">
   <main>
     <section
-      class="relative bg-[url(assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-[40px] flex-col px-6"
+      class="relative bg-[url(./assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-[40px] flex-col px-6"
     >
-      <img
-        class="w-[330px]"
-        src="assets/logos/form-logo.webp"
-        alt="Image of the form logo"
-      />
+      <Image class="w-[330px]" src={ImageLogo} alt="Image of the form logo" />
       <h1 class="text-white font-cheddar text-[42px] tracking-[4.2px]">
         Can your story inspire Ami James?
       </h1>
@@ -21,7 +20,7 @@ import Layout from "@layouts/Layout.astro";
         Participate for a chance to WIN a tattoo session with Ami James
       </p>
       <FormWine />
-      <div class="bg-[url(assets/bg-border.jpeg)] rounded-2xl py-4 px-2 mt-6">
+      <div class="bg-[url(./assets/bg-border.jpeg)] rounded-2xl py-4 px-2 mt-6">
         <a
           href="/form"
           class="font-cheddar text-white text-2xl rounded-xl bg-[#000] p-2 duration-300 transition-colors hover:text-[#edd78b] tracking-[4px]"

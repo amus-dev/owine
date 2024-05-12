@@ -1,11 +1,18 @@
-import { defineConfig } from "astro/config";
-import vercel from "@astrojs/vercel/serverless";
+import { defineConfig, passthroughImageService } from "astro/config";
 
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  //output: "server",
-  //adapter: vercel(),
+  output: "static",
   integrations: [tailwind()],
+  site: "https://simplicity.cl/owine",
+  base: "/owine",
+  outDir: "./owine",
+  build: {
+    assetsPrefix: "https://simplicity.cl/owine",
+  },
+  image: {
+    service: passthroughImageService(),
+  },
 });

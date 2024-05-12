@@ -1,5 +1,5 @@
 <div
-  class="bg-[url(assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4"
+  class="bg-[url(./assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4"
 >
   <form
     action=""
@@ -75,7 +75,8 @@
       <button class="w-[260px] h-[73px] bg-white">Captcha</button>
       <div class="border border-white p-[4px] rounded-2xl">
         <button
-          class="text-white bg-[url(assets/bg-border.jpeg)] font-cheddar text-[43px] rounded-xl px-10 duration-300 transition-colors hover:text-black"
+          id="btnSubmit"
+          class="text-white bg-[url(./assets/bg-border.jpeg)] font-cheddar text-[43px] rounded-xl px-10 duration-300 transition-colors hover:text-black"
         >
           Enviar
         </button>
@@ -83,3 +84,10 @@
     </div>
   </form>
 </div>
+<script>
+  const $formSubmit = document.getElementById("btnSubmit");
+  $formSubmit?.addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("Enviar datos y pasar a la siguiente pantalla exito");
+  });
+</script>
