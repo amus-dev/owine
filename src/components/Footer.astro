@@ -1,12 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import FooterLogo from "@assets/logos/footer-logo.png";
-
-const { position = "absolute" } = Astro.props;
 ---
 
 <footer
-  class={`md:${position} bottom-0 z-10 w-full py-4 md:h-10 bg-black flex flex-col md:flex-row justify-center items-center md:p-10`}
+  class="relative w-full py-4 md:h-10 bg-black flex flex-col md:flex-row justify-center items-center md:p-10"
 >
   <div class="mb-2 md:mb-0">
     <Image src={FooterLogo} alt="Image of the footer logo" class="w-40" />

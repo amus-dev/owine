@@ -6,9 +6,19 @@ import Layout from "@layouts/Layout.astro";
 import HomeLogo from "@assets/logos/home-logo.png";
 ---
 
+<script>
+  import { navigate } from "astro:transitions/client";
+  // Navigate to the selected option automatically.
+  (document.querySelector("#btnYes") as HTMLAnchorElement).onclick = (
+    ev: any
+  ) => {
+    let href = "/form";
+    navigate(href);
+  };
+</script>
 <Layout title="OWINE - Home">
   <main>
-    <section
+    <div
       class="relative w-full h-screen bg-[url(assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center pt-10 md:pt-[94px] flex-col px-6"
     >
       <Image
@@ -25,11 +35,28 @@ import HomeLogo from "@assets/logos/home-logo.png";
         Are you?
       </h2>
 
-      <div class="flex gap-10 mt-10">
-        <a href="/form" class="font-cheddar text-white text-5xl">Yes</a>
-        <button class="font-cheddar text-white text-5xl">No</button>
+      <div class="flex gap-10 mt-10 justify-center items-center">
+        <div
+          class="bg-[url(assets/bg-border.jpeg)] rounded-2xl py-4 px-3 w-full"
+        >
+          <a
+            id="btnYes"
+            href="/form"
+            class="font-cheddar text-white text-5xl bg-black rounded-2xl px-10 duration-300 transition-colors hover:text-[#edd78b]"
+            >Yes</a
+          >
+        </div>
+        <div
+          class="bg-[url(assets/bg-border.jpeg)] rounded-2xl py-4 px-3 w-full"
+        >
+          <a
+            href="/form"
+            class="font-cheddar text-white text-5xl bg-black rounded-2xl px-10 duration-300 transition-colors hover:text-[#edd78b]"
+            >No</a
+          >
+        </div>
       </div>
-    </section>
-    <Footer position="absolute" />
+    </div>
   </main>
+  <Footer position="absolute" />
 </Layout>
