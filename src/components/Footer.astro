@@ -1,38 +1,75 @@
 ---
 import { Image } from "astro:assets";
 import FooterLogo from "@assets/logos/footer-logo.png";
+
+const { position = "absolute" } = Astro.props;
 ---
 
 <footer
-  class="absolute bottom-0 z-10 w-full h-10 bg-black flex justify-center items-center p-10"
+  class={`md:${position} bottom-0 z-10 w-full py-4 md:h-10 bg-black flex flex-col md:flex-row justify-center items-center md:p-10`}
 >
-  <Image src={FooterLogo} alt="Image of the footer logo" class="w-40" />
-  <p class="text-white text-[13px] mx-6">
-    ©2024 Your Company. All rights reserved. | Terms of Service | Privacy
-    Policy
-  </p>
-  <a
-    href="http://"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex justify-center items-center"
+  <div class="mb-2 md:mb-0">
+    <Image src={FooterLogo} alt="Image of the footer logo" class="w-40" />
+  </div>
+  <ul
+    class="flex md:flex-row flex-col justify-center items-center gap-1 md:gap-0 mb-2 md:mb-0"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="white"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"
-      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-        d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
-      ></path><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path
-        d="M16.5 7.5l0 .01"></path></svg
+    <li class="flex items-center justify-center">
+      <p class="text-white text-[13px]">
+        ©2024 Your Company. All rights reserved.
+      </p>
+      <span class="text-white mx-2 hidden md:block">|</span>
+    </li>
+    <li class="flex items-center justify-center">
+      <a
+        href="http://"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white text-[13px] duration-300 transition-colors hover:text-[#e8bb78]"
+      >
+        Terms of Service</a
+      >
+      <span class="text-white mx-2 hidden md:block">|</span>
+    </li>
+    <li class="flex items-center justify-center">
+      <a
+        href="http://"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white text-[13px] duration-300 transition-colors hover:text-[#e8bb78]"
+      >
+        Privacy Policy</a
+      >
+    </li>
+  </ul>
+  <div class="md:ml-6">
+    <a
+      href="http://"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex justify-center items-center"
     >
-    <p class="text-white text-[13px] ml-2">@O61wines</p>
-  </a>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
+        ></path><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path
+          d="M16.5 7.5l0 .01"></path></svg
+      >
+      <p
+        class="text-white text-[13px] ml-2 duration-300 transition-colors hover:text-[#e8bb78]"
+      >
+        @O61wines
+      </p>
+    </a>
+  </div>
 </footer>

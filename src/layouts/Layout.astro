@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import { ViewTransitions } from "astro:transitions";
 // Supports weights 300-800
 import "@fontsource-variable/open-sans";
 ---
@@ -17,27 +18,47 @@ import "@fontsource-variable/open-sans";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />
+    <style is:global>
+      html {
+        font-family: "Open Sans Variable", sans-serif;
+        background: #13151a;
+        background-size: 224px;
+      }
+
+      @font-face {
+        font-family: "CheddarGothic";
+        src: url("/src/assets/fonts/CheddarGothic-Sans.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "OpenSansCondLight";
+        src: url("/src/assets/fonts/OpenSans-CondLight.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      .font-cheddar {
+        font-family: "CheddarGothic", sans-serif;
+      }
+
+      .font-open-sans-light {
+        font-family: "OpenSansCondLight", sans-serif;
+      }
+
+      .form-select {
+        background-image: url("assets/icons/caret-down.svg");
+        background-size: 1.5rem;
+        background-position: right 1rem center;
+        background-repeat: no-repeat;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  html {
-    font-family: "Open Sans Variable", sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-
-  @font-face {
-    font-family: "CheddarGothic";
-    src: url("/src/assets/fonts/CheddarGothic-Sans.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  .font-cheddar {
-    font-family: "CheddarGothic", sans-serif;
-  }
-</style>

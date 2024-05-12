@@ -1,0 +1,26 @@
+---
+import FormLogo from "@assets/logos/form-logo.png";
+import Footer from "@components/Footer.astro";
+import FormWine from "@components/FormWine.astro";
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout title="OWINE - Form">
+  <main>
+    <section
+      class="relative w-full h-screen bg-[url(assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center pt-[40px] flex-col px-6"
+    >
+      <Image class="w-[330px]" src={FormLogo} alt="Image of the form logo" />
+      <h1 class="text-white font-cheddar text-[42px] tracking-[4.2px]">
+        Can your story inspire Ami James?
+      </h1>
+      <p class="text-white text-lg font-open-sans-light text-[28px]">
+        Participate for a chance to WIN a tattoo session with Ami James
+      </p>
+      <FormWine />
+    </section>
+    <Footer position="relative" />
+  </main>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+</Layout>
