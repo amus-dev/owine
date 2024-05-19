@@ -3,22 +3,13 @@ import Footer from "@components/Footer.astro";
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 import ImageLogo from "@assets/logos/home-logo.webp";
+import Wines from "@assets/images/bottles_wine.png";
 ---
 
-<script>
-  import { navigate } from "astro:transitions/client";
-  // Navigate to the selected option automatically.
-  (document.querySelector("#btnYes") as HTMLAnchorElement).onclick = (
-    ev: any
-  ) => {
-    let href = "./form";
-    navigate(href);
-  };
-</script>
 <Layout title="OWINE - Home">
   <main>
     <div
-      class="relative w-full bg-[url(./assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-20 md:py-[74px] flex-col px-6"
+      class="relative w-full bg-[url(owine/assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-20 md:py-[74px] flex-col px-6"
     >
       <Image
         class="size-60"
@@ -36,7 +27,7 @@ import ImageLogo from "@assets/logos/home-logo.webp";
 
       <div class="flex gap-10 justify-center items-center mb-10 md:mb-16">
         <div
-          class="bg-[url('./assets/bg-border.jpeg')] rounded-2xl py-4 px-3 w-full"
+          class="bg-[url('owine/assets/bg-border.jpeg')] rounded-2xl py-4 px-3 w-full"
         >
           <a
             id="btnYes"
@@ -46,14 +37,23 @@ import ImageLogo from "@assets/logos/home-logo.webp";
           >
         </div>
         <div
-          class="bg-[url(./assets/bg-border.jpeg)] rounded-2xl py-4 px-3 w-full"
+          class="bg-[url(owine/assets/bg-border.jpeg)] rounded-2xl py-4 px-3 w-full"
         >
           <a
-            href="/form"
+            href={`${import.meta.env.BASE_URL}/form`}
             class="font-cheddar text-white text-5xl bg-black rounded-2xl px-10 duration-300 transition-colors hover:text-[#edd78b]"
             >No</a
           >
         </div>
+      </div>
+
+      <!-- Elemento flotante -->
+      <div class="absolute -bottom-10 image-wines">
+        <Image
+          class="w-[280px]"
+          src={Wines}
+          alt="Images of wine bottles and glasses."
+        />
       </div>
     </div>
     <Footer />
