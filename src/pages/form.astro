@@ -1,6 +1,6 @@
 ---
 import Footer from "@components/Footer.astro";
-import FormWine from "@components/FormWine.astro";
+import FormWine from "@components/FormWine.tsx";
 import Layout from "@layouts/Layout.astro";
 
 import { Image } from "astro:assets";
@@ -19,7 +19,7 @@ import ImageLogo from "@assets/logos/form-logo.webp";
       <p class="text-white text-lg font-open-sans-light text-[28px]">
         Participate for a chance to WIN a tattoo session with Ami James
       </p>
-      <FormWine />
+      <FormWine client:load />
       <div class="bg-[url(assets/bg-border.jpeg)] rounded-2xl py-4 px-2 mt-6">
         <a
           href="/form"
@@ -30,5 +30,4 @@ import ImageLogo from "@assets/logos/form-logo.webp";
     </section>
   </main>
   <Footer position="relative" />
-  <script src="https://www.google.com/recaptcha/api.js"></script>
 </Layout>
