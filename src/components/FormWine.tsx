@@ -18,7 +18,7 @@ function Form() {
     e.preventDefault();
     setValidForm(true);
     if (handleValidForm()) {
-      navigate("/congrats");
+      navigate(`${import.meta.env.BASE_URL}/congrats`);
     }
   };
 
