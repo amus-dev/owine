@@ -20,6 +20,9 @@ dependencies:
   '@fontsource-variable/open-sans':
     specifier: ^5.0.29
     version: 5.0.29
+  '@midudev/tailwind-animations':
+    specifier: ^0.0.7
+    version: 0.0.7(tailwindcss@3.4.1)
   astro:
     specifier: ^4.5.8
     version: 4.5.8(typescript@5.4.3)
@@ -951,6 +954,14 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@midudev/tailwind-animations@0.0.7(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-K897X4NvM3tV2/R7aCjl6gJ6msWSTqQtcAwb5VX5D5+m/Mo650mEFoeODwqzaePYNro5BTGyXXFQw/kiHBZlUA==}
+    peerDependencies:
+      tailwindcss: ^3.0.0
+    dependencies:
+      tailwindcss: 3.4.1
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
