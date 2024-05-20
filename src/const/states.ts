@@ -1,5 +1,4 @@
 export const STATES = [
-  { value: "", label: "State" },
   { value: "1", label: "Alabama" },
   { value: "2", label: "Alaska" },
   { value: "3", label: "Arizona" },

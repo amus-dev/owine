@@ -82,12 +82,9 @@ const Form = () => {
           }}
           defaultValue=""
         >
+          <option value="">State</option>
           {STATES.map((state, index) => (
-            <option
-              key={index}
-              value={state.value}
-              selected={index === 0 && true}
-            >
+            <option key={index} value={state.value}>
               {state.label}
             </option>
           ))}
@@ -96,9 +93,7 @@ const Form = () => {
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[150px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && message === "" ? "!border-red-500" : "border-white"}`}
           placeholder="Tell us an amazing story to inspire Ami James"
           value={message}
-          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-            setMessage((e.target as HTMLTextAreaElement)?.value)
-          }
+          onChange={(e) => setMessage(e.target.value)}
         />
         <div className="flex items-center bg-white p-[13px] rounded-lg w-full justify-between">
           <p className="text-[13px] text-[#C3C3C3] max-w-sm">
@@ -110,6 +105,7 @@ const Form = () => {
             className={`mb-2 text-[13px] w-[100px] px-2 text-[#C3C3C3] border-[#4d4d4d] border form-select-terms appearance-none ${validForm === true && terms === "" ? "!border-red-500" : "border-[#4d4d4d]"} ${terms !== "" && "!text-[#000000]"}`}
             value={terms}
             onChange={(e) => setTerms(e.target.value)}
+            defaultValue="0"
           >
             <option value="0"></option>
             <option value="yes">Yes</option>
@@ -118,7 +114,7 @@ const Form = () => {
         </div>
         <div className="flex justify-between w-full mt-4">
           <ReCAPTCHA
-            sitekey={import.meta.env.RECAPTCHA_SITE_PUBLIC_KEY as string}
+            sitekey="6LdG0uIpAAAAAK20XMU67jrlRHPKQjLQav3"
             onChange={onChange}
           />
           <div className="border border-white p-[4px] rounded-2xl">
