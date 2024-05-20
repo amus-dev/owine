@@ -1,8 +1,9 @@
 import { navigate } from "astro:transitions/client";
-import React, { useState } from "react";
+import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { STATES } from "src/const/states";
 import { validateEmail } from "src/utils/formats";
+import toast, { Toaster } from "react-hot-toast";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -13,6 +14,7 @@ const Form = () => {
   const [message, setMessage] = useState("");
   const [terms, setTerms] = useState("");
   const [validForm, setValidForm] = useState(false);
+  const [captchaValidate, setCaptchaValidate] = useState(null);
 
   const handleOnClick = (e: any) => {
     e.preventDefault();
@@ -33,15 +35,19 @@ const Form = () => {
       message === "" ||
       terms === ""
     ) {
+      toast.error("Complete the required fields");
       return false;
     } else {
-      return true;
+      if (captchaValidate === null) {
+        toast.error("You must complete captcha");
+        return false;
+      } else {
+        return true;
+      }
     }
   };
 
-  function onChange(value: any) {
-    console.log("Captcha value:", value);
-  }
+  const handleChangeCaptcha = (value: any) => setCaptchaValidate(value);
 
   return (
     <div className="bg-[url(/owine/assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4 animate-fade-in animate-delay-400 animate-duration-600">
@@ -63,14 +69,14 @@ const Form = () => {
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && validateEmail(email) === false ? "!border-red-500" : "border-white"}`}
           type="email"
-          placeholder="Email"
+          placeholder="Email*"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && instagram === "" ? "!border-red-500" : "border-white"}`}
           type="text"
-          placeholder="Instagram username (Public account)"
+          placeholder="Instagram username (Public account)*"
           value={instagram}
           onChange={(e) => setInstagram(e.target.value)}
         />
@@ -82,7 +88,7 @@ const Form = () => {
           }}
           defaultValue=""
         >
-          <option value="">State</option>
+          <option value="">State*</option>
           {STATES.map((state, index) => (
             <option key={index} value={state.value}>
               {state.label}
@@ -91,7 +97,7 @@ const Form = () => {
         </select>
         <textarea
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[150px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && message === "" ? "!border-red-500" : "border-white"}`}
-          placeholder="Tell us an amazing story to inspire Ami James"
+          placeholder="Tell us an amazing story to inspire Ami James*"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
@@ -115,7 +121,7 @@ const Form = () => {
         <div className="flex justify-between w-full mt-4">
           <ReCAPTCHA
             sitekey="6LfO1-IpAAAAAJZezUhPH4aOQCnOulNxWTYWaG-i"
-            onChange={onChange}
+            onChange={handleChangeCaptcha}
           />
           <div className="border border-white p-[4px] rounded-2xl">
             <button
@@ -126,6 +132,7 @@ const Form = () => {
             </button>
           </div>
         </div>
+        <Toaster position="top-right" />
       </form>
     </div>
   );
