@@ -114,7 +114,7 @@ const Form = () => {
         </div>
         <div className="flex justify-between w-full mt-4">
           <ReCAPTCHA
-            sitekey="6LdG0uIpAAAAAK20XMU67jrlRHPKQjLQav3"
+            sitekey="6LfO1-IpAAAAAJZezUhPH4aOQCnOulNxWTYWaG-i"
             onChange={onChange}
           />
           <div className="border border-white p-[4px] rounded-2xl">
@@ -126,8 +126,6 @@ const Form = () => {
             </button>
           </div>
         </div>
-
-        <script async src="https://www.google.com/recaptcha/api.js"></script>
       </form>
     </div>
   );
