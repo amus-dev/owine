@@ -26,9 +26,6 @@ dependencies:
   astro:
     specifier: ^4.5.8
     version: 4.5.8(typescript@5.4.3)
-  preact:
-    specifier: ^10.22.0
-    version: 10.22.0
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
