@@ -1,7 +1,8 @@
+import { navigate } from "astro:transitions/client";
+import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { STATES } from "src/const/states";
 import { validateEmail } from "src/utils/formats";
-import { navigate } from "astro:transitions/client";
-import { useState } from "react";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -38,6 +39,10 @@ const Form = () => {
     }
   };
 
+  function onChange(value: any) {
+    console.log("Captcha value:", value);
+  }
+
   return (
     <div className="bg-[url(/owine/assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4 animate-fade-in animate-delay-400 animate-duration-600">
       <form className="flex flex-col justify-center items-center w-full bg-black px-3 py-4 rounded-2xl">
@@ -46,42 +51,34 @@ const Form = () => {
           type="text"
           placeholder="Name*"
           value={name}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setName((e.target as HTMLInputElement)?.value)
-          }
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && lastName === "" ? "!border-red-500" : "border-white"}`}
           type="text"
           placeholder="Last name"
           value={lastName}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setLastName((e.target as HTMLInputElement)?.value)
-          }
+          onChange={(e) => setLastName(e.target.value)}
         />
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && validateEmail(email) === false ? "!border-red-500" : "border-white"}`}
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setEmail((e.target as HTMLInputElement)?.value)
-          }
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && instagram === "" ? "!border-red-500" : "border-white"}`}
           type="text"
           placeholder="Instagram username (Public account)"
           value={instagram}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setInstagram((e.target as HTMLInputElement)?.value)
-          }
+          onChange={(e) => setInstagram(e.target.value)}
         />
         <select
           className={`w-full rounded-lg mb-2 text-[13px] px-[13px] text-[#C3C3C3] appearance-none form-select h-[28px] border-[2px] border-white ${validForm === true && state === "" ? "!border-red-500" : "border-white"} ${state !== "" && "!text-[#000000]"}`}
           value={state}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-            setState((e.target as HTMLSelectElement)?.value);
+          onChange={(e) => {
+            setState(e.target.value);
           }}
           defaultValue=""
         >
@@ -112,18 +109,18 @@ const Form = () => {
           <select
             className={`mb-2 text-[13px] w-[100px] px-2 text-[#C3C3C3] border-[#4d4d4d] border form-select-terms appearance-none ${validForm === true && terms === "" ? "!border-red-500" : "border-[#4d4d4d]"} ${terms !== "" && "!text-[#000000]"}`}
             value={terms}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setTerms((e.target as HTMLSelectElement)?.value)
-            }
+            onChange={(e) => setTerms(e.target.value)}
           >
             <option value="0"></option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
         </div>
-        <div className="flex justify-center items-center"></div>
-        <div className="flex justify-between w-full">
-          <button className="w-[260px] h-[73px] bg-white">Captcha</button>
+        <div className="flex justify-between w-full mt-4">
+          <ReCAPTCHA
+            sitekey={import.meta.env.RECAPTCHA_SITE_PUBLIC_KEY as string}
+            onChange={onChange}
+          />
           <div className="border border-white p-[4px] rounded-2xl">
             <button
               onClick={(e) => handleOnClick(e)}
