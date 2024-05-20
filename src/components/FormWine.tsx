@@ -41,7 +41,7 @@ function Form() {
   };
 
   return (
-    <div class="bg-[url(assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4">
+    <div class="bg-[url(/owine/assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4">
       <form class="flex flex-col justify-center items-center w-full bg-black px-3 py-4 rounded-2xl">
         <input
           class={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && name === "" ? "!border-red-500" : "border-white"}`}
@@ -137,7 +137,7 @@ function Form() {
           <div class="border border-white p-[4px] rounded-2xl">
             <button
               onClick={(e) => handleOnClick(e)}
-              class="text-white bg-[url(assets/bg-border.jpeg)] font-cheddar text-[43px] rounded-xl px-10 duration-300 transition-colors hover:text-black"
+              class="text-white bg-[url(/owine/assets/bg-border.jpeg)] font-cheddar text-[43px] rounded-xl px-10 duration-300 transition-colors hover:text-black"
             >
               Enviar
             </button>
