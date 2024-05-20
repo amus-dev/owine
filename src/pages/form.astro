@@ -1,6 +1,6 @@
 ---
 import Footer from "@components/Footer.astro";
-import FormWine from "@components/FormWine.tsx";
+import FormComponent from "@components/Form.tsx";
 import Layout from "@layouts/Layout.astro";
 
 import { Image } from "astro:assets";
@@ -27,7 +27,7 @@ import ImageLogo from "@assets/logos/form-logo.webp";
       >
         Participate for a chance to WIN a tattoo session with Ami James
       </p>
-      <FormWine client:load />
+      <FormComponent client:load />
       <div
         class="bg-[url(/owine/assets/bg-border.jpeg)] rounded-2xl py-4 px-2 mt-6 animate-fade-in animate-delay-100 animate-duration-600"
       >
