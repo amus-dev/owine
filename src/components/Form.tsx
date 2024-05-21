@@ -118,7 +118,7 @@ const Form = () => {
             <option value="no">No</option>
           </select>
         </div>
-        <div className="flex justify-between w-full mt-4">
+        <div className="flex lg:flex-row flex-col lg:justify-between justify-center items-center w-full mt-4 gap-4">
           <ReCAPTCHA
             sitekey="6LfO1-IpAAAAAJZezUhPH4aOQCnOulNxWTYWaG-i"
             onChange={handleChangeCaptcha}
