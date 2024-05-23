@@ -20,7 +20,7 @@ const Form = () => {
     e.preventDefault();
     setValidForm(true);
     if (handleValidForm()) {
-      navigate(`${import.meta.env.BASE_URL}/congrats`);
+      handleSendData();
     }
   };
 
@@ -47,17 +47,48 @@ const Form = () => {
     }
   };
 
+  const handleSendData = async () => {
+    const form = document.querySelector("#formOwine") as HTMLFormElement;
+    const formData = new FormData(form);
+
+    try {
+      // TO DO: URL Dinamica
+      const response = await fetch(`http://localhost:8888/o61/send.php`, {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+      console.log(result);
+      if (result.e === 0) {
+        navigate(`${import.meta.env.BASE_URL}/congrats`);
+      }
+      if (result.e === 1) {
+        toast.error("Email invalid");
+      }
+      if (result.e === 2) {
+        toast.error("Complete the required fields");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const handleChangeCaptcha = (value: any) => setCaptchaValidate(value);
 
   return (
     <div className="bg-[url(/owine/assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4 animate-fade-in animate-delay-400 animate-duration-600">
-      <form className="flex flex-col justify-center items-center w-full bg-black px-3 py-4 rounded-2xl">
+      <form
+        className="flex flex-col justify-center items-center w-full bg-black px-3 py-4 rounded-2xl"
+        id="formOwine"
+      >
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && name === "" ? "!border-red-500" : "border-white"}`}
           type="text"
           placeholder="Name*"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          id="name"
+          name="name"
         />
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && lastName === "" ? "!border-red-500" : "border-white"}`}
@@ -65,6 +96,8 @@ const Form = () => {
           placeholder="Last name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
+          id="lastName"
+          name="lastName"
         />
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && validateEmail(email) === false ? "!border-red-500" : "border-white"}`}
@@ -72,6 +105,8 @@ const Form = () => {
           placeholder="Email*"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          id="email"
+          name="email"
         />
         <input
           className={`w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white ${validForm === true && instagram === "" ? "!border-red-500" : "border-white"}`}
@@ -79,6 +114,8 @@ const Form = () => {
           placeholder="Instagram username (Public account)*"
           value={instagram}
           onChange={(e) => setInstagram(e.target.value)}
+          id="instagram"
+          name="instagram"
         />
         <select
           className={`w-full rounded-lg mb-2 text-[13px] px-[13px] text-[#C3C3C3] appearance-none form-select h-[28px] border-[2px] border-white ${validForm === true && state === "" ? "!border-red-500" : "border-white"} ${state !== "" && "!text-[#000000]"}`}
@@ -87,6 +124,8 @@ const Form = () => {
             setState(e.target.value);
           }}
           defaultValue=""
+          id="state"
+          name="state"
         >
           <option value="">State*</option>
           {STATES.map((state, index) => (
@@ -100,6 +139,8 @@ const Form = () => {
           placeholder="Tell us an amazing story to inspire Ami James*"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          id="message"
+          name="message"
         />
         <div className="flex items-center bg-white p-[13px] rounded-lg w-full justify-between">
           <p className="text-[13px] text-[#C3C3C3] max-w-sm">
@@ -111,11 +152,12 @@ const Form = () => {
             className={`mb-2 text-[13px] w-[100px] px-2 text-[#C3C3C3] border-[#4d4d4d] border form-select-terms appearance-none ${validForm === true && terms === "" ? "!border-red-500" : "border-[#4d4d4d]"} ${terms !== "" && "!text-[#000000]"}`}
             value={terms}
             onChange={(e) => setTerms(e.target.value)}
-            defaultValue="0"
+            id="terms"
+            name="terms"
           >
-            <option value="0"></option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="0">-</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
           </select>
         </div>
         <div className="flex lg:flex-row flex-col lg:justify-between justify-center items-center w-full mt-4 gap-4">
