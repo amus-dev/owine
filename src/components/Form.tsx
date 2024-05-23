@@ -76,9 +76,9 @@ const Form = () => {
   const handleChangeCaptcha = (value: any) => setCaptchaValidate(value);
 
   return (
-    <div className="bg-[url(/owine/assets/bg-border.jpeg)] rounded-2xl w-full max-w-[630px] p-2 mt-4 animate-fade-in animate-delay-400 animate-duration-600">
+    <div className="bg-[url(/owine/assets/bg-border.jpeg)] lg:bg-[url(/owine/assets/border-form.png)] md:bg-cover md:bg-center md:bg-no-repeat w-full max-w-[630px] md:max-w-full md:w-[745px] md:h-[645px] lg:w-[650px] lg:h-[563px] px-2 py-2 mt-4 flex flex-col rounded-2xl md:rounded-none md:justify-center md:items-center animate-fade-in animate-delay-400 animate-duration-600">
       <form
-        className="flex flex-col justify-center items-center w-full bg-black px-3 py-4 rounded-2xl"
+        className="flex flex-col justify-center items-center w-full bg-black px-3 py-6 lg:bg-transparent rounded-2xl md:rounded-none"
         id="formOwine"
       >
         <input
@@ -165,14 +165,12 @@ const Form = () => {
             sitekey="6LfO1-IpAAAAAJZezUhPH4aOQCnOulNxWTYWaG-i"
             onChange={handleChangeCaptcha}
           />
-          <div className="border border-white p-[4px] rounded-2xl">
-            <button
-              onClick={(e) => handleOnClick(e)}
-              className="text-white bg-[url(/owine/assets/bg-border.jpeg)] font-cheddar text-[43px] rounded-xl px-10 duration-300 transition-colors hover:text-black"
-            >
-              Enviar
-            </button>
-          </div>
+          <button
+            onClick={(e) => handleOnClick(e)}
+            className="text-white bg-[url(/owine/assets/bg-boton-form.png)] bg-contain bg-no-repeat font-cheddar text-[42px] px-10 duration-300 transition-colors hover:text-black"
+          >
+            Enviar
+          </button>
         </div>
         <Toaster position="top-right" />
       </form>
