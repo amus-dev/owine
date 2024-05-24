@@ -15,8 +15,10 @@ const Form = () => {
   const [terms, setTerms] = useState("");
   const [validForm, setValidForm] = useState(false);
   const [captchaValidate, setCaptchaValidate] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleOnClick = (e: any) => {
+    setLoading(true);
     e.preventDefault();
     setValidForm(true);
     if (handleValidForm()) {
@@ -36,9 +38,11 @@ const Form = () => {
       terms === ""
     ) {
       toast.error("Complete the required fields");
+      setLoading(false);
       return false;
     } else {
       if (captchaValidate === null) {
+        setLoading(false);
         toast.error("You must complete captcha");
         return false;
       } else {
@@ -58,7 +62,7 @@ const Form = () => {
         body: formData,
       });
       const result = await response.json();
-      console.log(result);
+      setLoading(false);
       if (result.e === 0) {
         navigate(`${import.meta.env.BASE_URL}/congrats`);
       }
@@ -69,6 +73,7 @@ const Form = () => {
         toast.error("Complete the required fields");
       }
     } catch (e) {
+      setLoading(false);
       console.error(e);
     }
   };
@@ -165,12 +170,16 @@ const Form = () => {
             sitekey="6LfO1-IpAAAAAJZezUhPH4aOQCnOulNxWTYWaG-i"
             onChange={handleChangeCaptcha}
           />
-          <button
-            onClick={(e) => handleOnClick(e)}
-            className="text-white bg-[url(/owine/assets/bg-boton-form.png)] bg-contain bg-no-repeat font-cheddar text-[42px] px-10 duration-300 transition-colors hover:text-black"
-          >
-            Enviar
-          </button>
+          {loading ? (
+            <div className="spinner"></div>
+          ) : (
+            <button
+              onClick={(e) => handleOnClick(e)}
+              className="text-white bg-[url(/owine/assets/bg-boton-form.png)] bg-contain bg-no-repeat font-cheddar text-[42px] px-10 duration-300 transition-colors hover:text-black"
+            >
+              Enviar
+            </button>
+          )}
         </div>
         <Toaster position="top-right" />
       </form>
