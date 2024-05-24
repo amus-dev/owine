@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
 // Supports weights 300-800
 import "@fontsource-variable/open-sans";
@@ -13,7 +14,7 @@ import "@fontsource-variable/open-sans";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link
       rel="apple-touch-icon"
