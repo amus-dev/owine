@@ -53,7 +53,7 @@ const Form = () => {
 
     try {
       // TO DO: URL Dinamica
-      const response = await fetch(`http://localhost:8888/o61/send.php`, {
+      const response = await fetch(`https://simplicity.cl/owine/send.php`, {
         method: "POST",
         body: formData,
       });
