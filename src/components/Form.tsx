@@ -167,7 +167,6 @@ const Form = () => {
         </div>
         <div className="flex lg:flex-row flex-col lg:justify-between justify-center items-center w-full mt-4 gap-4">
           <ReCAPTCHA
-            aria-label="Captcha Google"
             sitekey={import.meta.env.PUBLIC_VITE_SITE_RECAPTCHA_KEY as string}
             onChange={handleChangeCaptcha}
           />
