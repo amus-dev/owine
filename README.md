@@ -1,5 +1,5 @@
-<img src="https://raw.githubusercontent.com/amus-dev/owine/main/src/assets/logos/home-logo.webp" alt="
-     Logo Owine" width="150" />
+<img src="https://raw.githubusercontent.com/amus-dev/owine/main/src/assets/logos/footer-logo.webp" alt="
+     Logo Owine" width="150" /><br>
 _Landing de campaña para Ö-61_
 
 ## Comenzando 🚀
