@@ -63,16 +63,23 @@ pnpm run dev
 ## Despliegue Producción 🚀
 
 _Para desplegar la APP en producción debe crear un archivo .env.production en la raiz del proyecto (folder /src)_
+
 _Agregar esta variable, la cual debe apuntar a la URL de producción alojada en simplicity_
 
 ```bash
-BASE_URL="confirmar"
+BASE_URL="Dominio de producción"
 ```
 
 _Agregar esta variable, la cual es la KEY del Recaptcha Google_
 
 ```bash
 PUBLIC_VITE_SITE_RECAPTCHA_KEY="KEY_RECAPTCHA"
+```
+
+_Empaquetar app para desplegar en servidor_
+
+```bash
+pnpm run build
 ```
 
 ## Visualizar sitio en Desarrollo 👀
