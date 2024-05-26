@@ -2,7 +2,7 @@
      Logo Owine" width="300" /><br>
 _Landing de campaña para Ö-61_
 
-## Comenzando 🚀
+## Comenzando 🙌🏻
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
@@ -22,7 +22,7 @@ npm install
 pnpm install
 ```
 
-## Ambientar proyecto local 🛠️
+## Ambientar proyecto local 💻
 
 _Para levantar el proyecto de manera local debe realizar lo siguiente_
 _Se debe crear un archivo llamado .env en la raiz del proyecto (folder src)_
@@ -44,7 +44,23 @@ _Para obtener esta key se debe crear en la página de administrador de Google, d
 - [Crear aquí](https://www.google.com/recaptcha/admin/create)
 - [Documentación](https://developers.google.com/recaptcha/intro?hl=es-419)
 
-## Despliegue Producción 📦
+## Levantar proyecto local ⚙️
+
+_Para levantar el proyecto local debe correr el comando con su gestor de paquetes favorito_
+
+- npm
+
+```bash
+npm run dev
+```
+
+- pnpm
+
+```bash
+pnpm run dev
+```
+
+## Despliegue Producción 🚀
 
 _Para desplegar la APP en producción debe crear un archivo .env.production en la raiz del proyecto (folder /src)_
 _Agregar esta variable, la cual debe apuntar a la URL de producción alojada en simplicity_
@@ -59,13 +75,13 @@ _Agregar esta variable, la cual es la KEY del Recaptcha Google_
 PUBLIC_VITE_SITE_RECAPTCHA_KEY="KEY_RECAPTCHA"
 ```
 
-## Sitio en Desarrollo 🛠️
+## Visualizar sitio en Desarrollo 👀
 
 _Para visualizar el sitio en ambiente desarrollo se ingresa en la siguiente URL_
 
 - [Owine - Dev](https://simplicity.cl/owine)
 
-## Sitio en Producción 🛠️
+## Visualizar sitio en Producción 👀
 
 _Para visualizar el sitio en producción se ingresa en la siguiente URL_
 
@@ -78,6 +94,6 @@ _La estructura del proyecto esta creado con Atomic Design y las herramientas uti
 - [Astro](https://docs.astro.build/en/getting-started/)
 - [Tailwind](https://tailwindcss.com/)
 
-## Autores ✒️
+## Autores 🙎🏻‍♂️ ✒️
 
 - **Alexander Urrutia** - [codeamus](https://github.com/mts4)
