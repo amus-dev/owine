@@ -94,6 +94,6 @@ _La estructura del proyecto esta creado con Atomic Design y las herramientas uti
 - [Astro](https://docs.astro.build/en/getting-started/)
 - [Tailwind](https://tailwindcss.com/)
 
-## Autores 🙎🏻‍♂️ ✒️
+## Autores 🙎🏻‍♂️
 
 - **Alexander Urrutia** - [codeamus](https://github.com/mts4)
