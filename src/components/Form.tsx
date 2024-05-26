@@ -1,9 +1,9 @@
 import { navigate } from "astro:transitions/client";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { STATES } from "src/const/states";
-import { validateEmail } from "src/utils/formats";
 import toast, { Toaster } from "react-hot-toast";
+import { STATES } from "@const/states";
+import { validateEmail } from "@utils/formats";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -18,8 +18,8 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
 
   const handleOnClick = (e: any) => {
-    setLoading(true);
     e.preventDefault();
+    setLoading(true);
     setValidForm(true);
     if (handleValidForm()) {
       handleSendData();
