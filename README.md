@@ -1,54 +1,83 @@
-# Astro Starter Kit: Basics
+<img src="https://raw.githubusercontent.com/amus-dev/owine/main/src/assets/logos/home-logo.webp" alt="
+     Logo Owine" width="150" /> <br><br>
+_Landing de campaña para Ö-61_
 
-```sh
-npm create astro@latest -- --template basics
+## Comenzando 🚀
+
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+
+### Instalación 🔧
+
+_Debe instalar todas las dependencias del proyecto con su gestor de paquetes favorito_
+
+- npm
+
+```bash
+npm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+- pnpm
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+pnpm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Ambientar proyecto local 🛠️
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+_Para levantar el proyecto de manera local debe realizar lo siguiente_
+_Se debe crear un archivo llamado .env en la raiz del proyecto (folder src)_
 
-Any static assets, like images, can be placed in the `public/` directory.
+_Agregar esta variable, la cual debe apuntar a la URL de desarrollo alojada en simplicity_
 
-## 🧞 Commands
+```bash
+BASE_URL="https://simplicity.cl/owine"
+```
 
-All commands are run from the root of the project, from a terminal:
+_Agregar esta variable, la cual es la KEY del Recaptcha Google_
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+PUBLIC_VITE_SITE_RECAPTCHA_KEY="KEY_RECAPTCHA"
+```
 
-## 👀 Want to learn more?
+_Para obtener esta key se debe crear en la página de administrador de Google, debe ser la versión v2 del Recaptcha_
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Crear aquí](https://www.google.com/recaptcha/admin/create)
+- [Documentación](https://developers.google.com/recaptcha/intro?hl=es-419)
+
+## Despliegue Producción 📦
+
+_Para desplegar la APP en producción debe crear un archivo .env.production en la raiz del proyecto (folder /src)_
+_Agregar esta variable, la cual debe apuntar a la URL de producción alojada en simplicity_
+
+```bash
+BASE_URL="confirmar"
+```
+
+_Agregar esta variable, la cual es la KEY del Recaptcha Google_
+
+```bash
+PUBLIC_VITE_SITE_RECAPTCHA_KEY="KEY_RECAPTCHA"
+```
+
+## Sitio en Desarrollo 🛠️
+
+_Para visualizar el sitio en ambiente desarrollo se ingresa en la siguiente URL_
+
+- [Owine - Dev](https://simplicity.cl/owine)
+
+## Sitio en Producción 🛠️
+
+_Para visualizar el sitio en producción se ingresa en la siguiente URL_
+
+- Por confirmar
+
+## Construido con 🛠️
+
+_La estructura del proyecto esta creado con Atomic Design y las herramientas utilizadas son:_
+
+- [Astro](https://docs.astro.build/en/getting-started/)
+- [Tailwind](https://tailwindcss.com/)
+
+## Autores ✒️
+
+- **Alexander Urrutia** - [codeamus](https://github.com/mts4)
