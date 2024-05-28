@@ -12,7 +12,7 @@ import { Image } from "astro:assets";
 >
   <main>
     <section
-      class="relative bg-[url(/owine/assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-[40px] flex-col px-6 animate-fade-in animate-delay-100 animate-duration-600"
+      class="relative bg-[url(/owine/assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-[40px] flex-col px-6 animate-fade-in animate-delay-100 animate-duration-600 lg:h-fit"
     >
       <Image
         class="w-[330px]"
@@ -30,7 +30,9 @@ import { Image } from "astro:assets";
       >
         Participate for a chance to WIN a tattoo session with Ami James
       </p>
-      <FormComponent client:only />
+      <div class="bg-black lg:min-h-[563px]">
+        <FormComponent client:only />
+      </div>
       <div
         class="bg-[url(/owine/assets/border-btn-follow-form.png)] bg-cover bg-center bg-no-repeat mt-6 w-[320px] h-[53px] lg:w-[380px] lg:h-[63px] flex justify-center items-center"
       >
