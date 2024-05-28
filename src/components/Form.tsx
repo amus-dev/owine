@@ -169,15 +169,16 @@ const Form = () => {
           <ReCAPTCHA
             sitekey={import.meta.env.PUBLIC_VITE_SITE_RECAPTCHA_KEY as string}
             onChange={handleChangeCaptcha}
+            hl="en"
           />
           {loading ? (
             <div className="spinner"></div>
           ) : (
             <button
               onClick={(e) => handleOnClick(e)}
-              className="text-white bg-[url(/owine/assets/bg-boton-form.png)] bg-contain bg-no-repeat font-cheddar text-[42px] px-10 duration-300 transition-colors hover:text-black"
+              className="text-white bg-[url(/owine/assets/bg-boton-form.png)] bg-cover bg-no-repeat font-cheddar text-[42px] w-full max-w-[180px] px-10 duration-300 transition-colors hover:text-black"
             >
-              Enviar
+              Send
             </button>
           )}
         </div>
