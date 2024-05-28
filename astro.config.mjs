@@ -7,11 +7,10 @@ import react from "@astrojs/react";
 export default defineConfig({
   output: "static",
   integrations: [tailwind(), react()],
-  site: "https://simplicity.cl/owine",
-  base: "/owine",
-  outDir: "./owine",
+  site: "https://sessions.o61wine.com",
+  base: "https://sessions.o61wine.com",
   build: {
-    assetsPrefix: "https://simplicity.cl/owine",
+    assetsPrefix: "https://sessions.o61wine.com",
   },
   image: {
     service: passthroughImageService(),
