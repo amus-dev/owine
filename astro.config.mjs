@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   site: "https://sessions.o61wine.com",
   base: "https://sessions.o61wine.com",
+  outDir: "./owine",
   build: {
     assetsPrefix: "https://sessions.o61wine.com",
   },

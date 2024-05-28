@@ -57,14 +57,14 @@ const Form = () => {
 
     try {
       // TO DO: URL Dinamica
-      const response = await fetch(`${import.meta.env.BASE_URL}/send.php`, {
+      const response = await fetch("https://sessions.o61wine.com/send.php", {
         method: "POST",
         body: formData,
       });
       const result = await response.json();
       setLoading(false);
       if (result.e === 0) {
-        navigate(`${import.meta.env.BASE_URL}/congrats`);
+        navigate("https://sessions.o61wine.com/congrats");
       }
       if (result.e === 1) {
         toast.error("Email invalid");
