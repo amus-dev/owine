@@ -149,9 +149,9 @@ const Form = () => {
         />
         <div className="flex items-center bg-white p-[13px] rounded-lg w-full justify-between">
           <p className="text-[13px] text-[#C3C3C3] max-w-sm">
-            You agree that the tatto will be done in the State of Florida during
-            the month of xxxx, and the entire process will be recorded and
-            dhared from Ö61 Wines* digital platforms
+            You agree that the tattoo will be done in the State of Florida
+            during August 2024, and the entire process will be recorded and
+            shared on Ö-61 Wines digital platforms.
           </p>
           <select
             className={`mb-2 text-[13px] w-[100px] px-2 text-[#C3C3C3] border-[#4d4d4d] border form-select-terms appearance-none ${validForm === true && terms === "" ? "!border-red-500" : "border-[#4d4d4d]"} ${terms !== "" && "!text-[#000000]"}`}
