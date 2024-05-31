@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import ImageLogo from "@assets/logos/footer-logo.webp";
+import RulesAndRegulationPDF from "@assets/docs/rules-and-regulations.pdf";
+console.log(RulesAndRegulationPDF);
 ---
 
 <footer
@@ -22,16 +24,16 @@ import ImageLogo from "@assets/logos/footer-logo.webp";
     </li>
     <li class="flex items-center justify-center">
       <a
-        href="http://"
+        href={RulesAndRegulationPDF}
         target="_blank"
         rel="noopener noreferrer"
         class="text-white text-[13px] duration-300 transition-colors hover:text-[#e8bb78]"
       >
-        Terms of Service</a
+        Rules and regulations</a
       >
       <span class="text-white mx-2 hidden md:block">|</span>
     </li>
-    <li class="flex items-center justify-center">
+    <!-- <li class="flex items-center justify-center">
       <a
         href="http://"
         target="_blank"
@@ -40,7 +42,7 @@ import ImageLogo from "@assets/logos/footer-logo.webp";
       >
         Privacy Policy</a
       >
-    </li>
+    </li> -->
   </ul>
   <div class="md:ml-6">
     <a
