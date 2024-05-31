@@ -149,9 +149,10 @@ const Form = () => {
         />
         <div className="flex items-center bg-white p-[13px] rounded-lg w-full justify-between">
           <p className="text-[13px] text-[#C3C3C3] max-w-sm">
-            You agree that the tattoo will be done in the State of Florida
-            during August 2024, and the entire process will be recorded and
-            shared on Ö-61 Wines digital platforms.
+            The prize must be redeemed in person at Miami Ink (Tattoo Shop) in
+            Miami, FL, during the month of August 2024. Travel and accommodation
+            costs are not included in the prize and are the sole responsibility
+            of the winner
           </p>
           <select
             className={`mb-2 text-[13px] w-[100px] px-2 text-[#C3C3C3] border-[#4d4d4d] border form-select-terms appearance-none ${validForm === true && terms === "" ? "!border-red-500" : "border-[#4d4d4d]"} ${terms !== "" && "!text-[#000000]"}`}
